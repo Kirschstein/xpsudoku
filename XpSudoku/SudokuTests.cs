@@ -15,7 +15,7 @@ namespace XpSudoku
 
             var output = SudokuFunction.Solve(inputAndExpectedOutput);
 
-            Assert.That(output, Is.EqualTo(inputAndExpectedOutput));
+            Assert.That(output.Trim(), Is.EqualTo(inputAndExpectedOutput.Trim()));
         }
 
         [Test]
@@ -30,9 +30,24 @@ namespace XpSudoku
 
             var output = SudokuFunction.Solve(input);
 
-            Assert.That(output, Is.EqualTo(expectedOutput));
+            Assert.That(output.Trim(), Is.EqualTo(expectedOutput.Trim()));
         }
-        
+
+        [Test]
+        public void TwoByTwoSolvedButThisWillDoForNow()
+        {
+            var input = @"
+                2 1
+                1 2";
+            var expectedOutput = @"
+                2 1
+                1 2";
+
+            var output = SudokuFunction.Solve(input);
+
+            Assert.That(output.Trim(), Is.EqualTo(expectedOutput.Trim()));
+        }
+
         public void sample()
         {
 
