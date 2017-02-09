@@ -9,44 +9,55 @@ namespace XpSudoku
         [Test]
         public void TwoByTwoUnchanged()
         {
-            var inputAndExpectedOutput = @"
-                1 2
-                2 1";
+            var inputAndExpectedOutput = new[,]
+            {
+                {1, 2}, 
+                {2, 1}
+            };
 
             var output = SudokuFunction.Solve(inputAndExpectedOutput);
 
-            Assert.That(output.Trim(), Is.EqualTo(inputAndExpectedOutput.Trim()));
+            Assert.That(output, Is.EqualTo(inputAndExpectedOutput));
         }
 
         [Test]
         public void TwoByTwoSolved()
         {
-            var input = @"
-                - 2
-                2 1";
-            var expectedOutput = @"
-                1 2
-                2 1";
+            var input = new[,]
+            {
+                {0, 2},
+                {2, 1}
+            };
+            var expectedOutput = new[,]
+            {
+                {1, 2},
+                {2, 1}
+            };
 
             var output = SudokuFunction.Solve(input);
 
-            Assert.That(output.Trim(), Is.EqualTo(expectedOutput.Trim()));
+            Assert.That(output, Is.EqualTo(expectedOutput));
         }
 
         [Test]
         public void TwoByTwoSolvedButThisWillDoForNow()
         {
-            var input = @"
-                2 1
-                1 2";
-            var expectedOutput = @"
-                2 1
-                1 2";
+            var input = new[,]
+               {
+                {2, 1},
+                {1, 2}
+            };
+            var expectedOutput = new[,]
+               {
+                {2, 1},
+                {1, 2}
+            };
 
             var output = SudokuFunction.Solve(input);
 
-            Assert.That(output.Trim(), Is.EqualTo(expectedOutput.Trim()));
+            Assert.That(output, Is.EqualTo(expectedOutput));
         }
+
 
         public void sample()
         {

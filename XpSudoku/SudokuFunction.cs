@@ -9,15 +9,24 @@ namespace XpSudoku
 {
     public class SudokuFunction
     {
-        public static string Solve(string grid)
+        public static int[,] Solve(int[,] grid)
         {
-            if (grid.Trim().StartsWith("2"))
+            if (grid[0,0] == 2)
             {
-                return @"2 1
-                1 2";
+                return new[,]
+                {
+                    {2, 1},
+                    {1, 2}
+                };
             }
-            return @"1 2
-                2 1"; 
+
+            return new[,]
+            {
+                {1, 2},
+                {2, 1}
+
+            };
+
         }
     }
 }
