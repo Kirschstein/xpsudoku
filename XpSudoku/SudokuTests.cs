@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Security.Cryptography.X509Certificates;
+using NUnit.Framework;
 
 namespace XpSudoku
 {
@@ -6,16 +7,36 @@ namespace XpSudoku
     public class SudokuTests
     {
         [Test]
-        public void IsRowValid()
+        public void TwoByTwo()
         {
-            Assert.That(SudokuFunction.IsRowValid(new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }) == true);
+            var twoByTwo = @"
+                1 2
+                2 1";
+
+            var expected = SudokuFunction.Solve(twoByTwo);
+
+            Assert.That(expected, Is.EqualTo(twoByTwo));
         }
+        
 
         [Test]
         public void sample()
         {
-            var solvedPuzzle = @"
-1 3 4 9 5 6 7 8 2
+            var twoByTwo = @"
+1 2
+2 1";
+            var twoByTwo2 = @"
+1 -
+- -";
+
+            var fourbyFour1 = @"
+? 1 2 3
+3 2 4 1
+1 4 3 2
+2 3 1 4";
+
+            var unsolvedPuzzle = @"
+? 3 4 9 5 6 7 8 2
 2 5 6 1 7 8 3 4 9
 7 8 9 2 3 4 1 5 6
 3 1 2 4 6 5 8 9 7
