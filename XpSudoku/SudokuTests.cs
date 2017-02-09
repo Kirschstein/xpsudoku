@@ -6,6 +6,12 @@ namespace XpSudoku
     public class SudokuTests
     {
         [Test]
+        public void IsRowValid()
+        {
+            Assert.That(SudokuFunction.IsRowValid(new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }) == true);
+        }
+
+        [Test]
         public void sample()
         {
             var solvedPuzzle = @"
