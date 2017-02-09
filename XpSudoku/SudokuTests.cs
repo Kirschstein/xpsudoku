@@ -7,27 +7,34 @@ namespace XpSudoku
     public class SudokuTests
     {
         [Test]
-        public void TwoByTwo()
+        public void TwoByTwoUnchanged()
         {
-            var twoByTwo = @"
+            var inputAndExpectedOutput = @"
                 1 2
                 2 1";
 
-            var expected = SudokuFunction.Solve(twoByTwo);
+            var output = SudokuFunction.Solve(inputAndExpectedOutput);
 
-            Assert.That(expected, Is.EqualTo(twoByTwo));
+            Assert.That(output, Is.EqualTo(inputAndExpectedOutput));
         }
-        
 
         [Test]
+        public void TwoByTwoSolved()
+        {
+            var input = @"
+                - 2
+                2 1";
+            var expectedOutput = @"
+                1 2
+                2 1";
+
+            var output = SudokuFunction.Solve(input);
+
+            Assert.That(output, Is.EqualTo(expectedOutput));
+        }
+        
         public void sample()
         {
-            var twoByTwo = @"
-1 2
-2 1";
-            var twoByTwo2 = @"
-1 -
-- -";
 
             var fourbyFour1 = @"
 ? 1 2 3

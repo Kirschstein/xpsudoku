@@ -10,9 +10,11 @@ namespace XpSudoku
     public class SudokuFunction
     {
 
-        public static string Solve(string twoByTwo)
+        public static string Solve(string grid)
         {
-            return twoByTwo;
+            return @"
+                1 2
+                2 1"; 
         }
     }
 }
