@@ -11,7 +11,7 @@ namespace XpSudoku
         {
             var inputAndExpectedOutput = new[,]
             {
-                {1, 2}, 
+                {1, 2},
                 {2, 1}
             };
 
@@ -43,12 +43,31 @@ namespace XpSudoku
         public void TwoByTwoSolvedButThisWillDoForNow()
         {
             var input = new[,]
-               {
+            {
                 {2, 1},
                 {1, 2}
             };
             var expectedOutput = new[,]
-               {
+            {
+                {2, 1},
+                {1, 2}
+            };
+
+            var output = SudokuFunction.Solve(input);
+
+            Assert.That(output, Is.EqualTo(expectedOutput));
+        }
+
+        [Test]
+        public void TwoByTwoSolvedButThisWillDoForNowAgain()
+        {
+            var input = new[,]
+            {
+                {0, 1},
+                {1, 2}
+            };
+            var expectedOutput = new[,]
+            {
                 {2, 1},
                 {1, 2}
             };
